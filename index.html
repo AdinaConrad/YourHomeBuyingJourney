@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Home Buying Journey · Adina Conrad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; width: 100%; overflow-x: hidden; }
+body { font-family: 'Jost', sans-serif; background: #fdf8f2; color: #1e1810; width: 100%; overflow-x: hidden; padding-bottom: 60px; -webkit-font-smoothing: antialiased; }
+
+/* HERO */
+.hero { width: 100%; background: linear-gradient(175deg, #fbe8d0 0%, #f5c17a 30%, #e8883a 62%, #c95318 82%, #0abfbc 100%); padding: 44px 20px 80px; text-align: center; overflow: hidden; position: relative; }
+.hero-sun { position: absolute; z-index: 1; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,220,120,0.55) 0%, rgba(232,136,58,0.18) 60%, transparent 80%); top: 10px; left: 50%; transform: translateX(-50%); animation: sunPulse 6s ease-in-out infinite; }
+@keyframes sunPulse { 0%,100%{opacity:0.8;transform:translateX(-50%) scale(1)} 50%{opacity:1;transform:translateX(-50%) scale(1.06)} }
+.hero::after { content:''; position:absolute; border-radius:50%; width:500px; height:500px; bottom:-260px; left:50%; transform:translateX(-50%); border:1px solid rgba(10,191,188,0.3); animation:ripple 7s ease-in-out infinite; }
+@keyframes ripple { 0%,100%{transform:translateX(-50%) scale(1);opacity:0.4} 50%{transform:translateX(-50%) scale(1.08);opacity:0.15} }
+.sf { position:absolute; z-index:4; }
+.sf1 { top:14px; right:16px; animation:fs1 9s ease-in-out infinite; }
+.sf2 { bottom:38px; left:14px; opacity:0.45; animation:fs2 12s ease-in-out infinite 3s; }
+@keyframes fs1 { 0%,100%{transform:rotate(0deg) translateY(0)} 50%{transform:rotate(40deg) translateY(-8px)} }
+@keyframes fs2 { 0%,100%{transform:scale(.45) rotate(0deg)} 50%{transform:scale(.45) rotate(-45deg) translateY(-10px)} }
+
+.agent-pill-wrap { position:relative; z-index:5; text-align:center; margin-bottom:20px; }
+.agent-identity { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.5); border-radius:40px; padding:8px 18px 8px 10px; max-width:calc(100vw - 48px); }
+.agent-avatar { width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:#c44e12; flex-shrink:0; }
+.agent-name { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:#fff; line-height:1.2; }
+.agent-sub { font-size:10px; color:rgba(255,255,255,0.82); line-height:1.3; letter-spacing:0.06em; }
+.team-pill { display:inline-flex; align-items:center; gap:6px; background:rgba(10,191,188,0.22); border:1px solid rgba(10,191,188,0.45); border-radius:20px; padding:5px 14px; margin-top:8px; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#fff; }
+.hero-eyebrow { font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:10px; position:relative; z-index:4; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(30px,9vw,46px); font-weight:700; color:#fff; line-height:1.1; margin-bottom:10px; position:relative; z-index:4; }
+.hero h1 em { font-style:italic; font-weight:400; }
+.hero-sub { font-size:14px; font-weight:300; letter-spacing:0.06em; color:rgba(255,255,255,0.78); position:relative; z-index:4; }
+.benefit-ribbon { position:relative; z-index:5; display:inline-block; margin-top:18px; background:rgba(255,255,255,0.18); color:#fff; border:1px solid rgba(255,255,255,0.4); font-size:10px; font-weight:500; letter-spacing:0.13em; text-transform:uppercase; padding:7px 18px; border-radius:20px; }
+
+.wave { display:block; margin-top:-1px; background:#fdf8f2; }
+.page { width:100%; max-width:680px; margin:0 auto; padding:0 16px; }
+
+.welcome-card { background:#fff; border-radius:16px; border:1px solid rgba(30,24,16,0.08); border-left:4px solid #e8601c; padding:22px 18px; margin:24px 0 28px; }
+.welcome-icon-row { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.welcome-icon { flex-shrink:0; width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#e4f8f7,#fdf1eb); display:flex; align-items:center; justify-content:center; }
+.welcome-text h2 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#1e1810; line-height:1.25; }
+.welcome-text p { font-size:15px; font-weight:300; color:#3d3326; line-height:1.72; margin-top:10px; }
+.welcome-text p strong { font-weight:600; color:#c44e12; }
+.team-strip { background:linear-gradient(90deg,#fdf1eb,#e4f8f7); border-radius:10px; padding:12px 16px; display:flex; align-items:flex-start; gap:10px; border:1px solid rgba(232,96,28,0.12); margin-top:14px; flex-wrap:wrap; }
+.team-strip-label { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#c44e12; white-space:nowrap; }
+.team-strip-divider { width:1px; height:16px; background:rgba(232,96,28,0.2); flex-shrink:0; margin-top:2px; }
+.team-strip-text { font-size:13px; color:#3d3326; line-height:1.45; }
+
+.control-panel { background:#1e1810; border-radius:14px; padding:16px 18px; margin-bottom:28px; }
+.control-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.control-label { font-size:10px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#5dd5d2; }
+.agent-badge { font-size:10px; font-weight:500; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.28); }
+.control-select { width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(10,191,188,0.38); border-radius:10px; color:#fff; font-family:'Jost',sans-serif; font-size:16px; padding:13px 14px; cursor:pointer; -webkit-appearance:none; appearance:none; }
+.control-select option { background:#1e1810; color:#fff; }
+
+.timeline { position:relative; display:flex; flex-direction:column; }
+.timeline::before { content:''; position:absolute; left:11px; top:20px; bottom:20px; width:2px; background:linear-gradient(to bottom,#0abfbc,#e8601c,#e8883a); opacity:0.25; border-radius:2px; }
+
+.step-row { display:flex; align-items:flex-start; gap:16px; padding:5px 0; position:relative; min-width:0; }
+.step-connector { width:2px; height:8px; background:rgba(10,191,188,0.14); margin-left:11px; }
+.step-dot { flex-shrink:0; width:24px; height:24px; border-radius:50%; border:2px solid #0abfbc; background:#fdf8f2; margin-top:17px; position:relative; z-index:2; }
+.step-card { flex:1; min-width:0; border-radius:14px; padding:18px 16px; border:1px solid rgba(30,24,16,0.08); background:#ffffff; position:relative; overflow:hidden; overflow-wrap:break-word; }
+.step-number { font-size:10px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#0abfbc; margin-bottom:4px; }
+.step-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#1e1810; margin-bottom:7px; line-height:1.2; }
+.step-desc { font-size:15px; font-weight:300; color:#3d3326; line-height:1.72; overflow-wrap:break-word; }
+.nj-badge { display:inline-block; font-size:10px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; background:#e4f8f7; color:#089e9b; border:1px solid rgba(10,191,188,0.28); border-radius:4px; padding:3px 9px; margin-bottom:8px; }
+
+.action-block { margin-top:14px; border-radius:10px; overflow:hidden; border:1px solid rgba(10,191,188,0.18); }
+.action-block-header { background:#e4f8f7; padding:9px 14px; border-bottom:1px solid rgba(10,191,188,0.1); }
+.action-block-label { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#089e9b; }
+.action-list { list-style:none; padding:12px 14px; display:block; background:#ffffff; overflow:hidden; }
+.action-item { display:flex; align-items:flex-start; gap:10px; font-size:14px; font-weight:300; color:#3d3326; line-height:1.68; margin-bottom:11px; }
+.action-item:last-child { margin-bottom:0; }
+.action-item strong { font-weight:600; display:inline; }
+.action-item-text { flex:1; min-width:0; overflow-wrap:break-word; word-break:normal; }
+.action-icon { flex-shrink:0; width:20px; height:20px; border-radius:50%; margin-top:1px; display:flex; align-items:center; justify-content:center; font-size:10px; }
+.action-icon.money { background:rgba(10,191,188,0.12); color:#089e9b; }
+.action-icon.task  { background:rgba(30,24,16,0.07); color:#1e1810; }
+.action-icon.warn  { background:rgba(232,96,28,0.10); color:#c44e12; }
+
+.here-banner { display:none; margin-top:10px; background:#0abfbc; color:#fff; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; padding:7px 16px; border-radius:20px; }
+
+.footer-card { margin-top:44px; border-radius:20px; background:linear-gradient(155deg,#1e1810 0%,#2a1f10 40%,#1a2820 100%); padding:36px 22px 28px; text-align:center; position:relative; overflow:hidden; }
+.footer-star-spin { display:inline-block; animation:spinSlow 14s linear infinite; margin-bottom:14px; }
+@keyframes spinSlow { to{transform:rotate(360deg)} }
+.footer-name { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:#fff; margin-bottom:5px; }
+.footer-name em { font-style:italic; font-weight:400; color:#f5c98a; }
+.footer-team { font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#5dd5d2; margin-bottom:4px; }
+.footer-title { font-size:11px; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:#e8601c; margin-bottom:12px; }
+.footer-brokerage { font-size:12px; font-weight:300; color:rgba(255,255,255,0.35); margin-bottom:18px; }
+.footer-tagline { display:inline-block; font-size:14px; font-weight:300; font-style:italic; color:rgba(255,255,255,0.55); padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); line-height:1.7; max-width:340px; }
+.disclaimer { margin-top:22px; padding:14px 16px; background:rgba(255,255,255,0.04); border-radius:10px; border:1px solid rgba(255,255,255,0.08); }
+.disclaimer p { font-size:11px; font-weight:300; color:rgba(255,255,255,0.28); line-height:1.7; font-style:italic; }
+.disclaimer p strong { font-weight:500; font-style:normal; color:rgba(255,255,255,0.38); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-sun"></div>
+  <div class="sf sf1"><svg width="58" height="58" viewBox="0 0 64 64" fill="none"><path d="M32 4 L36.5 22 L54 18 L42 30 L56 40 L37.5 38 L36 58 L28 40 L10 48 L22 34 L8 22 L27.5 26 Z" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+  <div class="sf sf2"><svg width="58" height="58" viewBox="0 0 64 64" fill="none"><path d="M32 4 L36.5 22 L54 18 L42 30 L56 40 L37.5 38 L36 58 L28 40 L10 48 L22 34 L8 22 L27.5 26 Z" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.45)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+  <div class="agent-pill-wrap">
+    <div class="agent-identity">
+      <div class="agent-avatar">AC</div>
+      <div>
+        <div class="agent-name">Adina Conrad</div>
+        <div class="agent-sub">Goldcoast Sotheby's International Realty</div>
+      </div>
+    </div>
+    <br>
+    <div class="team-pill">✦ The Tyrrell Team</div>
+  </div>
+  <div class="hero-eyebrow">South Jersey Shore Real Estate</div>
+  <h1>Your Home Buying <em>Journey</em></h1>
+  <p class="hero-sub">Simplified, step by step — just for you</p>
+  <div class="benefit-ribbon">✦ An exclusive guide from your agent</div>
+</div>
+
+<svg class="wave" viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:48px;">
+  <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,0 L0,0 Z" fill="#b84214"/>
+  <path d="M0,42 C360,14 720,56 1080,28 C1260,14 1380,42 1440,36 L1440,56 L0,56 Z" fill="#fdf8f2"/>
+</svg>
+
+<div class="page">
+
+  <div class="welcome-card">
+    <div class="welcome-icon-row">
+      <div class="welcome-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="welcome-text"><h2>Welcome — you're in good hands.</h2></div>
+    </div>
+    <div class="welcome-text">
+      <p>I put this guide together specifically for my clients because buying a home at the Jersey Shore should feel exciting, not overwhelming. Every step below is something we'll navigate <strong>together</strong>. I'm available for every question, big or small — that's what working with <strong>Adina Conrad</strong> means.</p>
+      <div class="team-strip">
+        <span class="team-strip-label">The Tyrrell Team</span>
+        <div class="team-strip-divider"></div>
+        <span class="team-strip-text">You have an entire team behind you, from search to settlement.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-panel">
+    <div class="control-top">
+      <span class="control-label">📍 Mark current stage</span>
+      <span class="agent-badge">Agent only</span>
+    </div>
+    <select class="control-select" id="stepSelector" onchange="highlight(parseInt(this.value))" onclick="highlight(parseInt(this.value))">
+      <option value="0">— select client's current step —</option>
+      <option value="1">Step 1 — Get pre-approved</option>
+      <option value="2">Step 2 — House hunting</option>
+      <option value="3">Step 3 — Submit an offer</option>
+      <option value="4">Step 4 — Offer accepted</option>
+      <option value="5">Step 5 — Attorney review</option>
+      <option value="6">Step 6 — Home inspection</option>
+      <option value="7">Step 7 — Mortgage application &amp; appraisal</option>
+      <option value="8">Step 8 — Clear to close</option>
+      <option value="9">Step 9 — Settlement / closing day</option>
+    </select>
+    <button onclick="highlight(parseInt(document.getElementById('stepSelector').value))" style="width:100%;margin-top:10px;padding:14px;background:#0abfbc;color:#fff;border:none;border-radius:10px;font-family:'Jost',sans-serif;font-size:16px;font-weight:600;letter-spacing:0.06em;cursor:pointer;-webkit-appearance:none;">Update ✓</button>
+  </div>
+
+  <div class="timeline" id="timeline">
+
+    <!-- Step 1 -->
+    <div class="step-row" id="row1">
+      <div class="step-dot" id="dot1"></div>
+      <div class="step-card" id="card1">
+        <div class="step-number" id="num1">Step 1</div>
+        <div class="step-title" id="title1">Get pre-approved</div>
+        <div class="here-banner" id="banner1">📍 You are here</div>
+        <div class="step-desc" id="desc1">Talk to a lender before you start touring. Knowing your budget keeps you focused — and makes your offer stronger when the right house comes along.</div>
+        <div class="action-block" id="ab1">
+          <div class="action-block-header" id="abh1"><span class="action-block-label" id="abl1">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist1">
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Gather pay stubs, tax returns (2 yrs), and bank statements to give your lender.</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text">No money due yet — but know your down payment amount and where it's sitting.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 2 -->
+    <div class="step-row" id="row2">
+      <div class="step-dot" id="dot2"></div>
+      <div class="step-card" id="card2">
+        <div class="step-number" id="num2">Step 2</div>
+        <div class="step-title" id="title2">House hunting</div>
+        <div class="here-banner" id="banner2">📍 You are here</div>
+        <div class="step-desc" id="desc2">Tour homes with your agent. Take notes, photos, and pay attention to how each home feels. We'll narrow it down together until you find the one.</div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 3 -->
+    <div class="step-row" id="row3">
+      <div class="step-dot" id="dot3"></div>
+      <div class="step-card" id="card3">
+        <div class="step-number" id="num3">Step 3</div>
+        <div class="step-title" id="title3">Submit an offer</div>
+        <div class="here-banner" id="banner3">📍 You are here</div>
+        <div class="step-desc" id="desc3">Your agent writes the offer — price, terms, deposit amount, and any contingencies. We submit it to the seller and wait for their response.</div>
+        <div class="action-block" id="ab3">
+          <div class="action-block-header" id="abh3"><span class="action-block-label" id="abl3">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist3">
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text">Your contract will specify 3 deposit amounts, their due dates, form of payment, and where to deliver them. Review this carefully.</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text"><strong>Deposit 1 (initial deposit)</strong> is typically due within days of a fully signed contract. Check your contract for the exact amount, form, and delivery location.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 4 -->
+    <div class="step-row" id="row4">
+      <div class="step-dot" id="dot4"></div>
+      <div class="step-card" id="card4">
+        <div class="step-number" id="num4">Step 4</div>
+        <div class="step-title" id="title4">Offer accepted 🎉</div>
+        <div class="here-banner" id="banner4">📍 You are here</div>
+        <div class="step-desc" id="desc4">Both sides sign the contract. Big moment — but the clock is now running on several deadlines. Read everything.</div>
+        <div class="action-block" id="ab4">
+          <div class="action-block-header" id="abh4"><span class="action-block-label" id="abl4">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist4">
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text"><strong>Deposit 1</strong> may be due now or very shortly. Confirm the dollar amount, form of payment, and where to deliver it — all in your contract.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Forward the signed contract to your lender immediately so they can begin the loan process.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Contact your attorney — attorney review begins now.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 5 -->
+    <div class="step-row" id="row5">
+      <div class="step-dot" id="dot5"></div>
+      <div class="step-card" id="card5">
+        <div class="nj-badge" id="njbadge5">NJ specific</div>
+        <div class="step-number" id="num5">Step 5</div>
+        <div class="step-title" id="title5">Attorney review</div>
+        <div class="here-banner" id="banner5">📍 You are here</div>
+        <div class="step-desc" id="desc5">New Jersey law gives both parties 3 business days to review the contract with an attorney. Changes can be negotiated, and either party can cancel during this window. This is totally normal — don't panic.</div>
+        <div class="action-block" id="ab5">
+          <div class="action-block-header" id="abh5"><span class="action-block-label" id="abl5">⚠️ Action items — do these now</span></div>
+          <ul class="action-list" id="alist5">
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text"><strong>Read the full contract — carefully.</strong> If anything is unclear, ask your attorney before this window closes. Once attorney review ends, you are bound.</span></li>
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text"><strong>Review the seller's disclosure.</strong> This tells you everything the seller knows about the home's condition — water damage, repairs, past issues. Read every line.</span></li>
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text"><strong>Review HOA documents</strong> (if applicable). Understand the rules, fees, and restrictions before you commit.</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text"><strong>Locate all 3 deposit requirements in your contract.</strong> Write down the amount, form of payment (personal check, certified check, wire, etc.), due date, and where to deliver each one.</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text"><strong>Deposit 2</strong> is typically due at the end of attorney review or shortly after. Confirm in your contract.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Your home inspection is scheduled — confirm the date, time, and plan to attend in person.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 6 -->
+    <div class="step-row" id="row6">
+      <div class="step-dot" id="dot6"></div>
+      <div class="step-card" id="card6">
+        <div class="step-number" id="num6">Step 6</div>
+        <div class="step-title" id="title6">Home inspection</div>
+        <div class="here-banner" id="banner6">📍 You are here</div>
+        <div class="step-desc" id="desc6">A licensed inspector checks the home top to bottom — structure, systems, roof, and more. Shore properties often require additional checks for flood, septic, or HVAC.</div>
+        <div class="action-block" id="ab6">
+          <div class="action-block-header" id="abh6"><span class="action-block-label" id="abl6">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist6">
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text">Inspection fee paid directly to the inspector at time of inspection (~$400–$700, varies by size).</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text"><strong>Deposit 2</strong> may be due around this time if not already delivered. Check your contract deadline.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Attend the inspection. Walk through with the inspector and ask questions.</span></li>
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text">After the report, you may negotiate repairs or credits with the seller. Your agent and attorney will guide you.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text"><strong>Start getting homeowners insurance quotes now.</strong> Contact at least 2–3 insurance providers to compare coverage and rates. Your lender will require proof of insurance before closing — don't wait on this.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 7 -->
+    <div class="step-row" id="row7">
+      <div class="step-dot" id="dot7"></div>
+      <div class="step-card" id="card7">
+        <div class="step-number" id="num7">Step 7</div>
+        <div class="step-title" id="title7">Mortgage application &amp; appraisal</div>
+        <div class="here-banner" id="banner7">📍 You are here</div>
+        <div class="step-desc" id="desc7">Your lender officially processes the loan. The home is independently appraised to confirm its value. Stay patient — this stage typically takes 3–5 weeks.</div>
+        <div class="action-block" id="ab7">
+          <div class="action-block-header" id="abh7"><span class="action-block-label" id="abl7">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist7">
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text">Appraisal fee paid upfront to your lender (~$500–$700). They will let you know when it's due.</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text"><strong>Deposit 3</strong> may be due during this period. Confirm the deadline, amount, form, and delivery in your contract.</span></li>
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text"><strong>Start setting aside closing costs now.</strong> NJ closing costs typically run 2–4% of purchase price on top of your down payment. Exact figures come from your title company and lender closer to closing.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Respond to any lender document requests quickly — delays push your closing date.</span></li>
+            <li class="action-item"><span class="action-icon warn">!</span><span class="action-item-text"><strong>Secure your homeowners insurance policy.</strong> Choose your provider and bind the policy — your lender will need proof of insurance (a binder letter) before they can issue clear to close. For Shore properties, also confirm whether you need separate flood insurance.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 8 -->
+    <div class="step-row" id="row8">
+      <div class="step-dot" id="dot8"></div>
+      <div class="step-card" id="card8">
+        <div class="step-number" id="num8">Step 8</div>
+        <div class="step-title" id="title8">Clear to close</div>
+        <div class="here-banner" id="banner8">📍 You are here</div>
+        <div class="step-desc" id="desc8">Your lender approves the loan — this is called "clear to close." A final walkthrough is scheduled. Settlement is right around the corner.</div>
+        <div class="action-block" id="ab8">
+          <div class="action-block-header" id="abh8"><span class="action-block-label" id="abl8">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist8">
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text">Review your <strong>Closing Disclosure</strong> from your lender carefully — it shows final loan terms and exact closing costs.</span></li>
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text">Your title company will send <strong>wire instructions</strong> for cash due at closing. Wire at least 24 hours before. <strong>Always confirm wire instructions by phone — never trust email alone.</strong></span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Do your final walkthrough and confirm the home is in agreed-upon condition.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Confirm closing time and location with your attorney.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text"><strong>Schedule your utility transfers.</strong> Contact each utility provider (electric, gas, water, trash, internet) to transfer service into your name effective on your closing date. Don't wait until after closing — some providers need several days' notice.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="step-connector"></div>
+
+    <!-- Step 9 -->
+    <div class="step-row" id="row9">
+      <div class="step-dot" id="dot9"></div>
+      <div class="step-card" id="card9">
+        <div class="step-number" id="num9">Step 9</div>
+        <div class="step-title" id="title9">Settlement — closing day 🔑</div>
+        <div class="here-banner" id="banner9">📍 You are here</div>
+        <div class="step-desc" id="desc9">Sign the paperwork, funds are transferred, and the deed is recorded. Congratulations — you get the keys. Welcome to the Jersey Shore.</div>
+        <div class="action-block" id="ab9">
+          <div class="action-block-header" id="abh9"><span class="action-block-label" id="abl9">💰 Money &amp; action items</span></div>
+          <ul class="action-list" id="alist9">
+            <li class="action-item"><span class="action-icon money">$</span><span class="action-item-text">Confirm your wire has been received by the title company before you arrive.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Bring a valid photo ID. Your attorney will walk you through every document you sign.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Once everything is signed and funds are disbursed, the deed is recorded — and the home is yours.</span></li>
+            <li class="action-item"><span class="action-icon task">✓</span><span class="action-item-text">Confirm your utilities are active in your name as of today.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-card">
+    <div class="footer-star-spin">
+      <svg width="30" height="30" viewBox="0 0 64 64" fill="none"><path d="M32 4 L36.5 22 L54 18 L42 30 L56 40 L37.5 38 L36 58 L28 40 L10 48 L22 34 L8 22 L27.5 26 Z" fill="#f5c98a" stroke="#e8883a" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="footer-name"><em>Adina</em> Conrad</div>
+    <div class="footer-team">The Tyrrell Team</div>
+    <div class="footer-title">Your Realtor · South Jersey Shore</div>
+    <div class="footer-brokerage">Goldcoast Sotheby's International Realty</div>
+    <div class="footer-tagline">This guide is a personal resource I created for my clients.<br>Questions at any step? I'm always a call or text away.</div>
+    <div class="disclaimer">
+      <p><strong>Disclaimer:</strong> This guide is a visual overview intended to help buyers understand the general home purchasing process in New Jersey. It is not a substitute for your executed contract, which governs all deadlines, deposit requirements, and obligations specific to your transaction. All dates, amounts, and terms should be confirmed directly with your contract, attorney, lender, and title company. This guide does not constitute legal, financial, or real estate advice. Always consult a licensed attorney for legal guidance related to your transaction.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function highlight(n) {
+  if (!n || n < 1 || n > 9) return;
+  for (var i = 1; i <= 9; i++) {
+    var card   = document.getElementById('card'   + i);
+    var dot    = document.getElementById('dot'    + i);
+    var banner = document.getElementById('banner' + i);
+    var num    = document.getElementById('num'    + i);
+    var title  = document.getElementById('title'  + i);
+    var desc   = document.getElementById('desc'   + i);
+    var ab     = document.getElementById('ab'     + i);
+    var abh    = document.getElementById('abh'    + i);
+    var abl    = document.getElementById('abl'    + i);
+    var alist  = document.getElementById('alist'  + i);
+    var njb    = document.getElementById('njbadge'+ i);
+
+    if (i < n) {
+      if (card)   { card.style.cssText   = 'flex:1;border-radius:14px;padding:18px 16px;border:1px solid rgba(30,24,16,0.04);background:rgba(253,250,242,0.65);opacity:0.6;position:relative;overflow:visible;'; }
+      if (dot)    { dot.style.cssText    = 'flex-shrink:0;width:24px;height:24px;border-radius:50%;border:2px solid #0abfbc;background:#0abfbc;margin-top:17px;position:relative;z-index:2;'; }
+      if (banner) { banner.style.display = 'none'; }
+      if (num)    { num.style.color      = '#089e9b'; }
+      if (title)  { title.style.color    = '#9a8e82'; }
+      if (desc)   { desc.style.color     = '#9a8e82'; }
+    } else if (i === n) {
+      if (card)   { card.style.cssText   = 'flex:1;border-radius:14px;padding:18px 16px;border:2px solid #e8601c;background:#e8601c;opacity:1;position:relative;overflow:visible;box-shadow:0 10px 36px rgba(232,96,28,0.28);'; }
+      if (dot)    { dot.style.cssText    = 'flex-shrink:0;width:30px;height:30px;border-radius:50%;border:3px solid #e8601c;background:#e8601c;margin-top:14px;position:relative;z-index:2;box-shadow:0 0 0 6px rgba(232,96,28,0.2);'; }
+      if (banner) { banner.style.cssText = 'display:inline-block;margin-top:10px;margin-bottom:8px;background:#ffffff;color:#e8601c;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:20px;'; }
+      if (num)    { num.style.color      = 'rgba(255,255,255,0.7)'; }
+      if (title)  { title.style.color    = '#ffffff'; }
+      if (desc)   { desc.style.color     = 'rgba(255,255,255,0.88)'; }
+      if (njb)    { njb.style.cssText    = 'display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:4px;padding:3px 9px;margin-bottom:8px;'; }
+      if (ab)     { ab.style.borderColor = 'rgba(255,255,255,0.25)'; }
+      if (abh)    { abh.style.cssText    = 'background:rgba(255,255,255,0.15);padding:9px 14px;border-bottom:1px solid rgba(255,255,255,0.15);'; }
+      if (abl)    { abl.style.color      = 'rgba(255,255,255,0.95)'; }
+      if (alist)  { alist.style.background = 'rgba(255,255,255,0.08)'; }
+      if (alist) {
+        var items = alist.querySelectorAll('.action-item');
+        for (var j = 0; j < items.length; j++) { items[j].style.color = 'rgba(255,255,255,0.9)'; }
+        var icons = alist.querySelectorAll('.action-icon');
+        for (var k = 0; k < icons.length; k++) { icons[k].style.cssText = 'flex-shrink:0;width:20px;height:20px;border-radius:50%;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;background:rgba(255,255,255,0.22);color:#fff;'; }
+      }
+    } else {
+      if (card)   { card.style.cssText   = 'flex:1;border-radius:14px;padding:18px 16px;border:1px solid rgba(30,24,16,0.08);background:#ffffff;opacity:1;position:relative;overflow:visible;box-shadow:0 2px 10px rgba(30,24,16,0.04);'; }
+      if (dot)    { dot.style.cssText    = 'flex-shrink:0;width:24px;height:24px;border-radius:50%;border:2px solid #0abfbc;background:#fdf8f2;margin-top:17px;position:relative;z-index:2;'; }
+      if (banner) { banner.style.display = 'none'; }
+      if (num)    { num.style.color      = '#0abfbc'; }
+      if (title)  { title.style.color    = '#1e1810'; }
+      if (desc)   { desc.style.color     = '#3d3326'; }
+      if (njb)    { njb.style.cssText    = 'display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:#e4f8f7;color:#089e9b;border:1px solid rgba(10,191,188,0.28);border-radius:4px;padding:3px 9px;margin-bottom:8px;'; }
+      if (ab)     { ab.style.borderColor = 'rgba(10,191,188,0.18)'; }
+      if (abh)    { abh.style.cssText    = 'background:#e4f8f7;padding:9px 14px;border-bottom:1px solid rgba(10,191,188,0.1);'; }
+      if (abl)    { abl.style.color      = '#089e9b'; }
+      if (alist)  { alist.style.background = '#ffffff'; }
+      if (alist) {
+        var items2 = alist.querySelectorAll('.action-item');
+        for (var j2 = 0; j2 < items2.length; j2++) { items2[j2].style.color = '#3d3326'; }
+        var icons2 = alist.querySelectorAll('.action-icon');
+        for (var k2 = 0; k2 < icons2.length; k2++) {
+          var ic = icons2[k2];
+          if (ic.classList.contains('money')) { ic.style.cssText = 'flex-shrink:0;width:20px;height:20px;border-radius:50%;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;background:rgba(10,191,188,0.12);color:#089e9b;'; }
+          else if (ic.classList.contains('task')) { ic.style.cssText = 'flex-shrink:0;width:20px;height:20px;border-radius:50%;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;background:rgba(30,24,16,0.07);color:#1e1810;'; }
+          else if (ic.classList.contains('warn')) { ic.style.cssText = 'flex-shrink:0;width:20px;height:20px;border-radius:50%;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;background:rgba(232,96,28,0.10);color:#c44e12;'; }
+        }
+      }
+    }
+  }
+  var activeCard = document.getElementById('card' + n);
+  if (activeCard && n > 0) {
+    setTimeout(function() {
+      activeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+}
+</script>
+
+</body>
+</html>
